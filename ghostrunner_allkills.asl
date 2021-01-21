@@ -1,27 +1,3 @@
-state("Ghostrunner-Win64-Shipping", "steam1")
-{
-    float preciseTime : 0x042E1678, 0x1A8, 0x284;
-    float levelTime : 0x0455C860, 0x128, 0x38C;
-    float xVel : 0x042E16B8, 0x30, 0x288, 0xC4;
-    float yVel : 0x042E16B8, 0x30, 0x288, 0xC8;
-    bool loading : 0x04417978, 0x1E8;
-    string250 map : 0x042E1678, 0x30, 0xF8, 0x0;
-    bool leaderboardShown : 0x042E1AC8, 0x80;
-    int deaths : 0x042E1678, 0x1A8, 0x28C;
-}
-
-state("Ghostrunner-Win64-Shipping", "steam3")
-{
-    float preciseTime : 0x042E78D0, 0x1A8, 0x284;
-    float levelTime : 0x04562C20, 0x128, 0x38C;
-    float xVel : 0x042E78F8, 0x30, 0x288, 0xC4;
-    float yVel : 0x042E78F8, 0x30, 0x288, 0xC8;
-    bool loading : 0x0441DD38, 0x1E8;
-    string250 map : 0x042E78D0, 0x30, 0xF8, 0x0;
-    bool leaderboardShown : 0x042E7D08, 0x80;
-    int deaths : 0x042E78D0, 0x1A8, 0x28C;
-}
-
 state("Ghostrunner-Win64-Shipping", "steam5")
 {
     float preciseTime : 0x04328548, 0x1A8, 0x284;
@@ -35,18 +11,6 @@ state("Ghostrunner-Win64-Shipping", "steam5")
 	int killpercp : 0x04328538, 0x30, 0xA4C;
 }	
 
-state("Ghostrunner-Win64-Shipping", "gog1")
-{
-    float preciseTime : 0x0430CC10, 0x1A8, 0x284;
-    float levelTime : 0x04587F20, 0x128, 0x38C;
-    float xVel : 0x0430CC48, 0x30, 0x288, 0xC4;
-    float yVel : 0x0430CC48, 0x30, 0x288, 0xC8;
-    bool loading : 0x04443038, 0x1E8;
-    string250 map : 0x0430CC10, 0x30, 0xF8, 0x0;
-    bool leaderboardShown : 0x0430D058, 0x80;
-    int deaths : 0x0430CC10, 0x1A8, 0x28C;
-}
-
 state("Ghostrunner-Win64-Shipping", "gog5")
 {
     float preciseTime : 0x04328548, 0x1A8, 0x284;
@@ -59,42 +23,6 @@ state("Ghostrunner-Win64-Shipping", "gog5")
     bool leaderboardShown : 0x04328580, 0x80;
     int deaths : 0x04328548, 0x1A8, 0x28C;
 	int killpercp : 0x04328538, 0x30, 0xA4C;
-}
-
-state("Ghostrunner-Win64-Shipping", "egs1")
-{
-    float preciseTime : 0x042EA098, 0x1A8, 0x284;
-    float levelTime : 0x04565320, 0x128, 0x38C;
-    float xVel : 0x042EA0D0, 0x30, 0x288, 0xC4;
-    float yVel : 0x042EA0D0, 0x30, 0x288, 0xC8;
-    bool loading : 0x04420438, 0x1E8;
-    string250 map : 0x042EA098, 0x30, 0xF8, 0x0;
-    bool leaderboardShown : 0x042EA108, 0x80;
-    int deaths : 0x042EA098, 0x1A8, 0x28C;
-}
-
-state("Ghostrunner-Win64-Shipping", "egs2")
-{
-    float preciseTime : 0x042E9098, 0x1A8, 0x284;
-    float levelTime : 0x04564320, 0x128, 0x38C;
-    float xVel : 0x042E90D0, 0x30, 0x288, 0xC4;
-    float yVel : 0x042E90D0, 0x30, 0x288, 0xC8;
-    bool loading : 0x0441F438, 0x1E8;
-    string250 map : 0x042E9098, 0x30, 0xF8, 0x0;
-    bool leaderboardShown : 0x042E9108, 0x80;
-    int deaths : 0x042E9098, 0x1A8, 0x28C;
-}
-
-state("Ghostrunner-Win64-Shipping", "egs3")
-{
-    float preciseTime : 0x042F02E8, 0x1A8, 0x284;
-    float levelTime : 0x0456B6A0, 0x128, 0x38C;
-    float xVel : 0x042F0310, 0x30, 0x288, 0xC4;
-    float yVel : 0x042F0310, 0x30, 0x288, 0xC8;
-    bool loading : 0x044267B8, 0x1E8;
-    string250 map : 0x042F02E8, 0x30, 0xF8, 0x0;
-    bool leaderboardShown : 0x042F0720, 0x80;
-    int deaths : 0x042F02E8, 0x1A8, 0x28C;
 }
 
 startup
@@ -176,30 +104,12 @@ init
     int moduleSize = modules.First().ModuleMemorySize;
     switch (moduleSize)
     {
-        case 78057472:
-            version = "steam1";
-            break;
-        case 78086144:
-            version = "steam3";
-            break;
 		case 78376960:
             version = "steam5";
             break;	   
-        case 78036992:
-            version = "gog1";
-            break;
 		case 78168064:
             version = "gog5";
             break;    
-        case 77885440:
-            version = "egs1";
-            break;
-        case 77881344:
-            version = "egs2";
-            break;
-        case 77910016:
-            version = "egs3";
-            break;
         default:
             version = "Unsupported - " + moduleSize.ToString();
             MessageBox.Show("This game version is currently not supported.", "LiveSplit Auto Splitter - Unsupported Game Version");
